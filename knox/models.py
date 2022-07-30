@@ -23,15 +23,11 @@ class AuthTokenManager(models.Manager):
 
 
 class AuthToken(models.Model):
-
     objects = AuthTokenManager()
 
-    digest = models.CharField(
-        max_length=CONSTANTS.DIGEST_LENGTH, primary_key=True)
-    token_key = models.CharField(
-        max_length=CONSTANTS.TOKEN_KEY_LENGTH, db_index=True)
-    user = models.ForeignKey(User, null=False, blank=False,
-                             related_name='auth_token_set', on_delete=models.CASCADE)
+    digest = models.CharField(max_length=CONSTANTS.DIGEST_LENGTH, primary_key=True)
+    token_key = models.CharField(max_length=CONSTANTS.TOKEN_KEY_LENGTH, db_index=True)
+    user = models.ForeignKey(User, null=False, blank=False, related_name='auth_token_set', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     expiry = models.DateTimeField(null=True, blank=True)
 

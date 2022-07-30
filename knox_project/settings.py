@@ -22,6 +22,10 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'knox_project.urls'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

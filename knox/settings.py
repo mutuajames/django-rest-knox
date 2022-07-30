@@ -6,6 +6,7 @@ from rest_framework.settings import APISettings, api_settings
 
 USER_SETTINGS = getattr(settings, 'REST_KNOX', None)
 
+#REST_KNOX = { ... settings below
 DEFAULTS = {
     'SECURE_HASH_ALGORITHM': 'cryptography.hazmat.primitives.hashes.SHA512',
     'AUTH_TOKEN_CHARACTER_LENGTH': 64,
